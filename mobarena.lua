@@ -52,3 +52,35 @@ registerHook("INTERACT", "green_test_spawn", 77, "spawn2", -33, 166, -281);
 registerHook("INTERACT", "green_test_despawn", 77, "spawn2", -32, 166, -281);
 registerHook("INTERACT", "yellow_test_spawn", 77, "spawn2", -30, 166, -281);
 registerHook("INTERACT", "yellow_test_despawn", 77, "spawn2", -29, 166, -281);
+
+----------
+--Lobby---
+----------
+
+----------
+--Shop----
+----------
+
+---------------
+--Nether Arena-
+---------------
+
+---------------------
+--Underground Arena--
+---------------------
+
+---------------------
+--Surface Arena------
+---------------------
+
+---------------------
+--Ender Arena--------
+---------------------
+
+---------------------
+--God Arena----------
+---------------------
+
+---------------------
+--Cheeves------------
+---------------------

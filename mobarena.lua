@@ -1,11 +1,11 @@
-local myWorld = World:new('spawn2');
-local OrangeLocation = Location:new(myWorld, -38, 166, -292);
+local myWorld = World:new('mobarena');
+local OrangeLocation = Location:new(myWorld, 832, 101, 132);
 local OrangeLane = Entity:new(OrangeLocation);
-local BlueLocation = Location:new(myWorld, -35, 166, -292);
+local BlueLocation = Location:new(myWorld, 835, 101, 132);
 local BlueLane = Entity:new(BlueLocation);
-local GreenLocation = Location:new(myWorld, -32, 166, -292);
+local GreenLocation = Location:new(myWorld, 838, 101, 132);
 local GreenLane = Entity:new(GreenLocation);
-local YellowLocation = Location:new(myWorld, -29, 166, -292);
+local YellowLocation = Location:new(myWorld, 841, 101, 132);
 local YellowLane = Entity:new(YellowLocation);
 
 -----------------
@@ -44,14 +44,14 @@ function yellow_test_despawn(data)
          YellowLane:despawn();
 end
 
-registerHook("INTERACT", "orange_test_spawn", 77, "spawn2", -39, 166, -281);
-registerHook("INTERACT", "orange_test_despawn", 77, "spawn2", -38, 166, -281);
-registerHook("INTERACT", "blue_test_spawn", 77, "spawn2", -36, 166, -281);
-registerHook("INTERACT", "blue_test_despawn", 77, "spawn2", -35, 166, -281);
-registerHook("INTERACT", "green_test_spawn", 77, "spawn2", -33, 166, -281);
-registerHook("INTERACT", "green_test_despawn", 77, "spawn2", -32, 166, -281);
-registerHook("INTERACT", "yellow_test_spawn", 77, "spawn2", -30, 166, -281);
-registerHook("INTERACT", "yellow_test_despawn", 77, "spawn2", -29, 166, -281);
+registerHook("INTERACT", "orange_test_spawn", 77, "mobarena", 831, 101, 143);
+registerHook("INTERACT", "orange_test_despawn", 77, "mobarena", 832, 101, 143);
+registerHook("INTERACT", "blue_test_spawn", 77, "mobarena", 834, 101, 143);
+registerHook("INTERACT", "blue_test_despawn", 77, "mobarena", 835, 101, 143);
+registerHook("INTERACT", "green_test_spawn", 77, "mobarena", 837, 101, 143);
+registerHook("INTERACT", "green_test_despawn", 77, "mobarena", 838, 101, 143);
+registerHook("INTERACT", "yellow_test_spawn", 77, "mobarena", 840, 101, 143);
+registerHook("INTERACT", "yellow_test_despawn", 77, "mobarena", 841, 101, 143);
 
 ----------
 --Lobby---

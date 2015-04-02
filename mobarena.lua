@@ -1,11 +1,11 @@
 local myWorld = World:new('spawn2');
 local OrangeLocation = Location:new(myWorld, -38, 166, -292);
 local OrangeLane = Entity:new(OrangeLocation);
-local BlueLocation = Location:new(myWorld, -36, 166, -292);
+local BlueLocation = Location:new(myWorld, -35, 166, -292);
 local BlueLane = Entity:new(BlueLocation);
-local GreenLocation = Location:new(myWorld, -33, 166, -292);
+local GreenLocation = Location:new(myWorld, -32, 166, -292);
 local GreenLane = Entity:new(GreenLocation);
-local YellowLocation = Location:new(myWorld, -30 166, -292);
+local YellowLocation = Location:new(myWorld, -29, 166, -292);
 local YellowLane = Entity:new(YellowLocation);
 
 -----------------
@@ -29,7 +29,7 @@ function blue_test_despawn(data)
 end
 
 function green_test_spawn(data)
-         GreenLane:spawn("PIG_ZOMBIE");
+         GreenLane:spawn("SKELETON");
 end
 
 function green_test_despawn(data)

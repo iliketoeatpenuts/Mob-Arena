@@ -1,5 +1,24 @@
 local myWorld = World:new('mobarena');
 
+
+--------
+---AI---
+--------
+
+local Overlord = 'PVE'
+
+function a_broadcast(msg)
+	world:broadcast(msg);
+end
+
+function a_broadcast_npc(npc, msg)
+	a_broadcast('&f &b' .. npc .. '&f: ' .. msg);
+end
+
+function a_whisper_npc(npc, msg, player)
+	player:sendMessage('&f[C4] &b' .. npc .. ' &3-> &f' .. msg);
+end
+
 -----------------
 --Testing Lanes--
 -----------------
@@ -107,11 +126,12 @@ registerHook("INTERACT", "yellow_test_despawn", 77, "mobarena", 841, 101, 143);
 --Lobby---
 ----------
 
-local surfacearena = Location:new(myWorld, -30, 66, 1.0);
+local surfacearena = Location:new(myWorld, 41, 67, 1);
 
 function to_surface_arena(data)
        local targetPlayer = Player:new(data.player);
        targetPlayer:teleport(surfacearena);
+       a_whisper_npc(Overlord, "Head to the center of the arena to get started!", player);
 end
 
 registerHook("REGION_ENTER", "to_surface_arena", "mobarena-portal_surfacearena");

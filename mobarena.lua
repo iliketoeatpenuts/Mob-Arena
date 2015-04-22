@@ -131,7 +131,6 @@ local surfacearena = Location:new(myWorld, 41, 67, 1);
 function to_surface_arena(data)
        local targetPlayer = Player:new(data.player);
        targetPlayer:teleport(surfacearena);
-       a_whisper_npc(Overlord, "Head to the center of the arena to get started!", targetPlayer);
 end
 
 registerHook("REGION_ENTER", "to_surface_arena", "mobarena-portal_surfacearena");
@@ -158,6 +157,14 @@ registerHook("REGION_ENTER", "to_surface_arena", "mobarena-portal_surfacearena")
 ---------------------
 --Surface Arena------
 ---------------------
+
+function surface_enter(data)
+         local targetPlayer = Player:new(data.player);
+         a_broadcast_npc(Overlord, player.name .. " has entered the &6Surface Arena&f!");
+         a_whisper_npc(Overlord, "Head to the center of the arena to get started!", targetPlayer);
+end
+
+registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface_enter");
 
 
 

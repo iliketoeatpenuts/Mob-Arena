@@ -6,17 +6,18 @@ local myWorld = World:new('mobarena');
 --------
 
 local Overlord = 'PVE'
+local Message = ''
 
 function a_broadcast(msg)
-	world:broadcast(msg);
+	myWorld:broadcast(msg);
 end
 
 function a_broadcast_npc(npc, msg)
-	a_broadcast('&f &b' .. npc .. '&f: ' .. msg);
+	a_broadcast('&f&c' .. npc .. '&6: &f' .. msg);
 end
 
 function a_whisper_npc(npc, msg, player)
-	player:sendMessage('&f&c' .. npc .. '&6: &f' .. msg);
+	player:sendMessage('&f&c' .. npc .. '&f' .. msg);
 end
 
 -----------------
@@ -159,9 +160,9 @@ registerHook("REGION_ENTER", "to_surface_arena", "mobarena-portal_surfacearena")
 ---------------------
 
 function surface_enter(data)
-         local targetPlayer = Player:new(data.player);
+         local player = Player:new(data.player);
          a_broadcast_npc(Overlord, player.name .. " has entered the &6Surface Arena&f!");
-         a_whisper_npc(Overlord, "Head to the center of the arena to get started!", targetPlayer);
+         a_whisper_npc(Message, "&cHead to the center of the arena to get started!", player);
 end
 
 registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface_enter");

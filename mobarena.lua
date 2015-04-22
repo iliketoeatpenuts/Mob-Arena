@@ -165,7 +165,24 @@ function surface_enter(data)
          a_whisper_npc(Message, "&cHead to the center of the arena to get started!", player);
 end
 
+function s_round_1(data)
+         local player = Player:new(data.player);
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
+         a_whisper_npc(Message, "&cRound One has started, kill all mobs to move into round two.", player);
+end
+
 registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface_enter");
+registerHook("INTERACT", "s_round_1", 69, "mobarena", -3, 66, -1);
+
+--Add 5 Rounds of Mobs, bonus round?
+--Lever Needs to be flipped at the end of each round to start the next round.
+--Lever can not be flipped during a round, get an error message.
+--Respawn inside the arena if player dies.
+--At the end of round 5 all players back to lobby.
+--Cheeves
+--Loot
+--Coins for shop
+--Signs to show whos in the lobby.
 
 
 

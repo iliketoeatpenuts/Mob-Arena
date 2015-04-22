@@ -107,6 +107,14 @@ registerHook("INTERACT", "yellow_test_despawn", 77, "mobarena", 841, 101, 143);
 --Lobby---
 ----------
 
+local surfacearena = Location:new(myWorld, -30, 66, 1.0);
+
+function to_surface_arena(data)
+       local targetPlayer = Player:new(data.player);
+       targetPlayer:teleport(surfacearena);
+end
+
+registerHook("REGION_ENTER", "to_surface_arena", "mobarena-portal_surfacearena");
 
 
 ----------

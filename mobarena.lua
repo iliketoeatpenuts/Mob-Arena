@@ -163,7 +163,6 @@ local sR2Playing = false;
 local sR3Playing = false;
 local sR4Playing = false;
 local sR5Playing = false;
-local sR1Spawn = Entity:new(sR1);
 
 function surface_enter(data)
          local player = Player:new(data.player);

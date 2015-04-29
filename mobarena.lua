@@ -208,21 +208,23 @@ function s_round2_start(data)
    end
 end
 
-function s_round1_spawn(data)
+
 local sR1Spawn = Entity:new(sR1);
 local sR1 = {
 	Location:new(myWorld, -5.0, 65.0, -2.0),
 	Location:new(myWorld, -5.0, 65.0, 0.0)
 };
 
-function yellow_test_spawn(data)
+function s_round1_spawn(data)
          sR1Spawn:spawn("WITCH");
   end
 end
 
 registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface_enter");
 registerHook("INTERACT", "s_round1_start", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_spawn", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round2_start", 69, "mobarena", 0, 66, -4);
+
 
 --Add 5 Rounds of Mobs, bonus round?
 --Lever Needs to be flipped at the end of each round to start the next round.

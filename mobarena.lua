@@ -286,7 +286,10 @@ registerHook("INTERACT", "s_round3_start", 69, "mobarena", 0, 66, 2);
 registerHook("INTERACT", "s_round4_start", 69, "mobarena", -6, 66, 2);
 registerHook("INTERACT", "s_round5_start", 69, "mobarena", -6, 66, -4);
 
+
+--ToDo:
 --ONLY ONE ROUND CAN RUN AT A TIME!!!!!!
+--Must Play Rounds in order!!!
 --Lever Needs to be flipped at the end of each round to start the next round.
 --Lever can not be flipped during a round, get an error message.
 --Respawn inside the arena if player dies.

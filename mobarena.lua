@@ -188,6 +188,7 @@ function s_round1_start(data)
    end
 end
 
+
 function s_round2_start(data)
          local player = Player:new(data.player);
       if s1Playing then
@@ -208,25 +209,84 @@ function s_round2_start(data)
    end
 end
 
+function s_round3_start(data)
+         local player = Player:new(data.player);
+      if s2Playing then
+         a_whisper_npc(Message, "&cFinish Round 2 to start the next round!", player);
+      else
+       if not sR1Playing then 
+       if not sR2Playing then 
+       if not sR4Playing then 
+       if not sR5Playing then
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 3 &fin the &6Surface Arena&f!");
+         a_whisper_npc(Message, "&cRound Three has started, kill all mobs to move into Round 4!", player);
+         s3Playing = true;
 
-local sR1Spawn = Entity:new(sR1);
-local sR1 = {
-	Location:new(myWorld, -5.0, 65.0, -2.0),
-	Location:new(myWorld, -5.0, 65.0, 0.0)
-};
+               end
+            end
+         end
+      end
+   end
+end
+
+function s_round4_start(data)
+         local player = Player:new(data.player);
+      if s3Playing then
+         a_whisper_npc(Message, "&cFinish Round 3 to start the next round!", player);
+      else
+       if not sR1Playing then 
+       if not sR2Playing then 
+       if not sR4Playing then 
+       if not sR5Playing then
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 4 &fin the &6Surface Arena&f!");
+         a_whisper_npc(Message, "&cRound Four has started, kill all mobs to move into Round 5!", player);
+         s4Playing = true;
+
+               end
+            end
+         end
+      end
+   end
+end
+
+function s_round5_start(data)
+         local player = Player:new(data.player);
+      if s4Playing then
+         a_whisper_npc(Message, "&cFinish Round 4 to start the next round!", player);
+      else
+       if not sR1Playing then 
+       if not sR2Playing then 
+       if not sR4Playing then 
+       if not sR5Playing then
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 5 &fin the &6Surface Arena&f!");
+         a_whisper_npc(Message, "&cRound Five has started, kill all mobs to finish!", player);
+         s5Playing = true;
+
+               end
+            end
+         end
+      end
+   end
+end
+
+
+local sZ1 = Location:new(myWorld, -5, 65, 0);
+local sR1Zombie = Entity:new(sZ1);
 
 function s_round1_spawn(data)
-         sR1Spawn:spawn("WITCH");
-  end
+         sR1Zombie:spawn("ZOMBIE");
+         sR1Zombie:spawn("ZOMBIE");
 end
 
 registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface_enter");
 registerHook("INTERACT", "s_round1_start", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round1_spawn", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round2_start", 69, "mobarena", 0, 66, -4);
+registerHook("INTERACT", "s_round3_start", 69, "mobarena", 0, 66, 2);
+registerHook("INTERACT", "s_round4_start", 69, "mobarena", -6, 66, 2);
+registerHook("INTERACT", "s_round5_start", 69, "mobarena", -6, 66, -4);
 
-
---Add 5 Rounds of Mobs, bonus round?
+--ONLY ONE ROUND CAN RUN AT A TIME!!!!!!
 --Lever Needs to be flipped at the end of each round to start the next round.
 --Lever can not be flipped during a round, get an error message.
 --Respawn inside the arena if player dies.

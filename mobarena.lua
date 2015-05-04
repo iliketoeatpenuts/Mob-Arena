@@ -158,11 +158,16 @@ registerHook("REGION_ENTER", "to_surface_arena", "mobarena-portal_surfacearena")
 ---------------------
 --Surface Arena------
 ---------------------
-local sR1Playing = false;
-local sR2Playing = false;
-local sR3Playing = false;
-local sR4Playing = false;
-local sR5Playing = false;
+
+--To know when a Round is completed.
+local sR1Done = false;
+local sR2Done = false;
+local sR3Done = false;
+local sR4Done = false;
+local sR5Done = false;
+--To know when a Round is in-progress.
+local sRoundRunning = false;
+
 
 function surface_enter(data)
          local player = Player:new(data.player);
@@ -172,115 +177,51 @@ end
 
 function s_round1_start(data)
          local player = Player:new(data.player);
-       if not sR2Playing then 
-       if not sR3Playing then 
-       if not sR4Playing then 
-       if not sR5Playing then 
+      if not sR5Done then 
          a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound One has started, kill all mobs to move into round 2.", player);
-         s1Playing = true;
-       else
-         a_whisper_npc(Message, "&cA new round can't be started at this time.", player);
-
-            end
-         end
-      end
+         sRoundRunning = true;
    end
 end
 
-
 function s_round2_start(data)
          local player = Player:new(data.player);
-      if s1Playing then
-         a_whisper_npc(Message, "&cFinish Round 1 to start the next round!", player);
-      else
-       if not sR1Playing then 
-       if not sR3Playing then 
-       if not sR4Playing then 
-       if not sR5Playing then
-         a_broadcast_npc(Overlord, player.name .. " has started &aRound 2 &fin the &6Surface Arena&f!");
-         a_whisper_npc(Message, "&cRound Two has started, kill all mobs to move into Round 3!", player);
-         s2Playing = true;
-
-               end
-            end
-         end
-      end
+      if sR1Done then 
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
+         a_whisper_npc(Message, "&cRound Two has started, kill all mobs to move into round 3.", player);
+         sRoundRunning = true;
    end
 end
 
 function s_round3_start(data)
          local player = Player:new(data.player);
-      if s2Playing then
-         a_whisper_npc(Message, "&cFinish Round 2 to start the next round!", player);
-      else
-       if not sR1Playing then 
-       if not sR2Playing then 
-       if not sR4Playing then 
-       if not sR5Playing then
-         a_broadcast_npc(Overlord, player.name .. " has started &aRound 3 &fin the &6Surface Arena&f!");
-         a_whisper_npc(Message, "&cRound Three has started, kill all mobs to move into Round 4!", player);
-         s3Playing = true;
-
-               end
-            end
-         end
-      end
+      if sR2Done then 
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
+         a_whisper_npc(Message, "&cRound Three has started, kill all mobs to move into round 4.", player);
+         sRoundRunning = true;
    end
 end
 
 function s_round4_start(data)
          local player = Player:new(data.player);
-      if s3Playing then
-         a_whisper_npc(Message, "&cFinish Round 3 to start the next round!", player);
-      else
-       if not sR1Playing then 
-       if not sR2Playing then 
-       if not sR4Playing then 
-       if not sR5Playing then
-         a_broadcast_npc(Overlord, player.name .. " has started &aRound 4 &fin the &6Surface Arena&f!");
-         a_whisper_npc(Message, "&cRound Four has started, kill all mobs to move into Round 5!", player);
-         s4Playing = true;
-
-               end
-            end
-         end
-      end
+      if sR3Done then 
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
+         a_whisper_npc(Message, "&cRound Four has started, kill all mobs to move into round 5.", player);
+         sRoundRunning = true;
    end
 end
 
 function s_round5_start(data)
          local player = Player:new(data.player);
-      if s4Playing then
-         a_whisper_npc(Message, "&cFinish Round 4 to start the next round!", player);
-      else
-       if not sR1Playing then 
-       if not sR2Playing then 
-       if not sR4Playing then 
-       if not sR5Playing then
-         a_broadcast_npc(Overlord, player.name .. " has started &aRound 5 &fin the &6Surface Arena&f!");
-         a_whisper_npc(Message, "&cRound Five has started, kill all mobs to finish!", player);
-         s5Playing = true;
-
-               end
-            end
-         end
-      end
+      if sR4Done then 
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
+         a_whisper_npc(Message, "&cRound Five has started, kill all mobs to finish the arena!", player);
+         sRoundRunning = true;
    end
 end
-
-
-local sZ1 = Location:new(myWorld, -5, 65, 0);
-local sR1Zombie = Entity:new(sZ1);
-
-function s_round1_spawn(data)
-         sR1Zombie:spawn("ZOMBIE");
-         sR1Zombie:spawn("ZOMBIE");
-end
-
+    
 registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface_enter");
 registerHook("INTERACT", "s_round1_start", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_spawn", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round2_start", 69, "mobarena", 0, 66, -4);
 registerHook("INTERACT", "s_round3_start", 69, "mobarena", 0, 66, 2);
 registerHook("INTERACT", "s_round4_start", 69, "mobarena", -6, 66, 2);

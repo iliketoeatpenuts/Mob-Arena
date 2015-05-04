@@ -215,7 +215,7 @@ end
 function s_round2_start(data)
          local player = Player:new(data.player);
       if sR1Done then 
-         a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 2 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound Two has started, kill all mobs to move into round 3.", player);
          sRoundRunning = true;
          surfacesound:playSound('PORTAL_TRIGGER', 1, 2);
@@ -227,7 +227,7 @@ end
 function s_round3_start(data)
          local player = Player:new(data.player);
       if sR2Done then 
-         a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 3 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound Three has started, kill all mobs to move into round 4.", player);
          sRoundRunning = true;
          surfacesound:playSound('PORTAL_TRIGGER', 1, 2);
@@ -239,7 +239,7 @@ end
 function s_round4_start(data)
          local player = Player:new(data.player);
       if sR3Done then 
-         a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 4 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound Four has started, kill all mobs to move into round 5.", player);
          sRoundRunning = true;
          surfacesound:playSound('PORTAL_TRIGGER', 1, 2);
@@ -251,7 +251,7 @@ end
 function s_round5_start(data)
          local player = Player:new(data.player);
       if sR4Done then 
-         a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
+         a_broadcast_npc(Overlord, player.name .. " has started &aRound 5 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound Five has started, kill all mobs to finish the arena!", player);
          sRoundRunning = true;
          surfacesound:playSound('PORTAL_TRIGGER', 1, 2);
@@ -459,6 +459,8 @@ registerHook("INTERACT", "s_round1_spawn5", 69, "mobarena", -7.0, 66.0, 1.0);
 
 --ToDo:
 --ROUND NEEDS TO END ITESLEF!
+--CAN NOT RESTART ROUND TILL ALL ROUNDS ARE DONE
+--IF NO PLAYERS IN ARENA ALL ROUNDS RESET.	
 --Message on round end to tell player about shop, how to start.
 --players in center to start?
 --Respawn inside the arena if player dies.
@@ -482,3 +484,72 @@ registerHook("INTERACT", "s_round1_spawn5", 69, "mobarena", -7.0, 66.0, 1.0);
 ---------------------
 --Cheeves------------
 ---------------------
+
+
+--------------------
+--OVERRIDE----------
+--------------------
+
+--Surface Arena--
+
+function s_o_reset_rounds(data)
+         local player = Player:new(data.player);
+         sR1Done = false;
+         sR2Done = false;
+         sR3Done = false;
+         sR4Done = false;
+         sR5Done = false;
+         a_whisper_npc(Message, "&cOVERRIDE - ALL ROUNDS RESET", player);
+end
+
+function s_o_gamerunning(data)
+         local player = Player:new(data.player);
+         sRoundRunning = true;
+         a_whisper_npc(Message, "&cOVERRIDE - GAME SET TO ACTIVE ROUND", player);
+end
+
+function s_o_gamenotrun(data)
+         local player = Player:new(data.player);
+         sRoundRunning = false;
+         a_whisper_npc(Message, "&cOVERRIDE - GAME SET TO NO ACTIVE ROUND", player);
+end
+
+function s_o_r1_done(data)
+         local player = Player:new(data.player);
+         sR1Done = true;
+         a_whisper_npc(Message, "&cOVERRIDE - ROUND ONE FORCED TO BE COMPLETE", player);
+end
+
+function s_o_r2_done(data)
+         local player = Player:new(data.player);
+         sR2Done = true;
+         a_whisper_npc(Message, "&cOVERRIDE - ROUND TWO FORCED TO BE COMPLETE", player);
+end
+
+function s_o_r3_done(data)
+         local player = Player:new(data.player);
+         sR3Done = true;
+         a_whisper_npc(Message, "&cOVERRIDE - ROUND THREE FORCED TO BE COMPLETE", player);
+end
+
+function s_o_r4_done(data)
+         local player = Player:new(data.player);
+         sR4Done = true;
+         a_whisper_npc(Message, "&cOVERRIDE - ROUND FOUR FORCED TO BE COMPLETE", player);
+end
+
+function s_o_r5_done(data)
+         local player = Player:new(data.player);
+         sR5Done = true;
+         a_whisper_npc(Message, "&cOVERRIDE - ROUND FIVE FORCED TO BE COMPLETE", player);
+end
+
+registerHook("INTERACT", "s_o_reset_rounds", 77, "mobarena", -39.0, 67.0, -7.0);
+registerHook("INTERACT", "s_o_gamerunning", 77, "mobarena", -40.0, 67.0, -7.0);
+registerHook("INTERACT", "s_o_gamenotrun", 77, "mobarena", -41.0, 67.0, -7.0);
+registerHook("INTERACT", "s_o_r1_done", 77, "mobarena", -42.0, 67.0, -7.0);
+registerHook("INTERACT", "s_o_r2_done", 77, "mobarena", -43.0, 67.0, -7.0);
+registerHook("INTERACT", "s_o_r3_done", 77, "mobarena", -44.0, 67.0, -7.0);
+registerHook("INTERACT", "s_o_r4_done", 77, "mobarena", -45.0, 67.0, -7.0);
+registerHook("INTERACT", "s_o_r5_done", 77, "mobarena", -46.0, 67.0, -7.0);
+

@@ -220,7 +220,7 @@ function s_round2_start(data)
          sRoundRunning = true;
          surfacesound:playSound('PORTAL_TRIGGER', 1, 2);
       else
-         a_whisper_npc(Message, "&cFinish current round before starting Round 2.", player);
+         a_whisper_npc(Message, "&cFinish Round 1 before starting Round 2.", player);
    end
 end
 
@@ -232,7 +232,7 @@ function s_round3_start(data)
          sRoundRunning = true;
          surfacesound:playSound('PORTAL_TRIGGER', 1, 2);
       else
-         a_whisper_npc(Message, "&cFinish current round before starting Round 3.", player);
+         a_whisper_npc(Message, "&cFinish Round 2 before starting Round 3.", player);
    end
 end
 
@@ -244,7 +244,7 @@ function s_round4_start(data)
          sRoundRunning = true;
          surfacesound:playSound('PORTAL_TRIGGER', 1, 2);
       else
-         a_whisper_npc(Message, "&cFinish current round before starting Round 4.", player);
+         a_whisper_npc(Message, "&cFinish Round 3 before starting Round 4.", player);
    end
 end
 
@@ -256,7 +256,7 @@ function s_round5_start(data)
          sRoundRunning = true;
          surfacesound:playSound('PORTAL_TRIGGER', 1, 2);
       else
-         a_whisper_npc(Message, "&cFinish current round before starting Round 5.", player);
+         a_whisper_npc(Message, "&cFinish Round 4 before starting Round 5.", player);
    end
 end
 
@@ -264,12 +264,71 @@ end
 registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface");
 registerHook("INTERACT", "surface_exit1", 77, "mobarena", 30, 65, -2);
 registerHook("REGION_LEAVE", "surface_exit2", "mobarena-arena_surface");
-registerHook("INTERACT", "s_round1_start", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round2_start", 69, "mobarena", 0, 66, -4);
-registerHook("INTERACT", "s_round3_start", 69, "mobarena", 0, 66, 2);
-registerHook("INTERACT", "s_round4_start", 69, "mobarena", -6, 66, 2);
-registerHook("INTERACT", "s_round5_start", 69, "mobarena", -6, 66, -4);
+registerHook("INTERACT", "s_round1_start", 69, "mobarena", -7.0, 66.0, 1.0);
+registerHook("INTERACT", "s_round2_start", 69, "mobarena", -7.0, 66.0, 0.0);
+registerHook("INTERACT", "s_round3_start", 69, "mobarena", -7.0, 66.0, -1.0);
+registerHook("INTERACT", "s_round4_start", 69, "mobarena", -7.0, 66.0, -2.0);
+registerHook("INTERACT", "s_round5_start", 69, "mobarena", -7.0, 66.0, -3.0);
 
+
+--Remove levers --
+
+local current = 1;
+local maxData = 14;
+local blocks = {
+	Location:new(myWorld, -7.0, 66.0, 1.0),
+	Location:new(myWorld, -7.0, 66.0, 0.0),
+	Location:new(myWorld, -7.0, 66.0, -1.0),
+	Location:new(myWorld, -7.0, 66.0, -2.0),
+	Location:new(myWorld, -7.0, 66.0, -3.0),
+};
+
+function s_removelevers(data)
+	if current == maxData then
+		current = 1;
+	else
+		current = current + 1;
+	end
+	s_re_lever();
+end
+
+function s_re_lever()
+       if sRoundRunning then
+	for index, key in ipairs(blocks) do
+		key:setBlock(89, current);
+      end
+   end
+end
+
+local current = 1;
+local maxData = 14;
+local blocks = {
+	Location:new(myWorld, -7.0, 66.0, 1.0),
+	Location:new(myWorld, -7.0, 66.0, 0.0),
+	Location:new(myWorld, -7.0, 66.0, -1.0),
+	Location:new(myWorld, -7.0, 66.0, -2.0),
+	Location:new(myWorld, -7.0, 66.0, -3.0),
+};
+
+function s_placelevers(data)
+	if current == maxData then
+		current = 1;
+	else
+		current = current + 1;
+	end
+	s_pl_lever();
+end
+
+function s_pl_lever()
+       if not sRoundRunning then
+	for index, key in ipairs(blocks) do
+		key:setBlock(69, current);
+      end
+   end
+end
+
+registerHook("BLOCK_GAINS_CURRENT", "s_re_lever", "mobarena", -49.0, 114.0, 9.0);
+registerHook("BLOCK_GAINS_CURRENT", "s_pl_lever", "mobarena", -49.0, 114.0, 9.0);
 
 
 --Mob Spawning--
@@ -326,13 +385,14 @@ function s_round1_spawn5(data)
          s1FiveSpawn:spawn("CREEPER");
 end
 
-registerHook("INTERACT", "s_round1_spawn1", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_spawn2", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_spawn3", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_spawn4", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_spawn5", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_spawn1", 69, "mobarena", -7.0, 66.0, 1.0);
+registerHook("INTERACT", "s_round1_spawn2", 69, "mobarena", -7.0, 66.0, 1.0);
+registerHook("INTERACT", "s_round1_spawn3", 69, "mobarena", -7.0, 66.0, 1.0);
+registerHook("INTERACT", "s_round1_spawn4", 69, "mobarena", -7.0, 66.0, 1.0);
+registerHook("INTERACT", "s_round1_spawn5", 69, "mobarena", -7.0, 66.0, 1.0);
 
 --ToDo:
+--ROUND NEEDS TO END ITESLEF!
 --Lever can not be flipped during a round, get an error message.
 --Respawn inside the arena if player dies.
 --Effect Mobs

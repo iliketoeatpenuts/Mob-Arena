@@ -181,6 +181,8 @@ function s_round1_start(data)
          a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound One has started, kill all mobs to move into round 2.", player);
          sRoundRunning = true;
+      else
+         a_whisper_npc(Message, "&cFinish current round before starting Round 1.", player);
    end
 end
 
@@ -190,6 +192,8 @@ function s_round2_start(data)
          a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound Two has started, kill all mobs to move into round 3.", player);
          sRoundRunning = true;
+      else
+         a_whisper_npc(Message, "&cFinish current round before starting Round 2.", player);
    end
 end
 
@@ -199,6 +203,8 @@ function s_round3_start(data)
          a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound Three has started, kill all mobs to move into round 4.", player);
          sRoundRunning = true;
+      else
+         a_whisper_npc(Message, "&cFinish current round before starting Round 3.", player);
    end
 end
 
@@ -208,6 +214,8 @@ function s_round4_start(data)
          a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound Four has started, kill all mobs to move into round 5.", player);
          sRoundRunning = true;
+      else
+         a_whisper_npc(Message, "&cFinish current round before starting Round 4.", player);
    end
 end
 
@@ -217,9 +225,12 @@ function s_round5_start(data)
          a_broadcast_npc(Overlord, player.name .. " has started &aRound 1 &fin the &6Surface Arena&f!");
          a_whisper_npc(Message, "&cRound Five has started, kill all mobs to finish the arena!", player);
          sRoundRunning = true;
+      else
+         a_whisper_npc(Message, "&cFinish current round before starting Round 5.", player);
    end
 end
-    
+
+
 registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface_enter");
 registerHook("INTERACT", "s_round1_start", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round2_start", 69, "mobarena", 0, 66, -4);

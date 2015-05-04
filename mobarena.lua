@@ -399,66 +399,342 @@ registerHook("BLOCK_GAINS_CURRENT", "s_pl_fence", "mobarena", -49.0, 114.0, 9.0)
 
 --Mob Spawning--
 
-
+--Round 1 (20 Mobs)--
 
 local sR1spawn1 = Location:new(myWorld, 4.0, 65.0, 17.0);
 local s1FirstSpawnR1 = Entity:new(sR1spawn1);
 
 function s_round1_spawn1(data)
-         s1FirstSpawn:spawn("ZOMBIE");
-         s1FirstSpawn:spawn("ZOMBIE");
-         s1FirstSpawn:spawn("CREEPER");
-         s1FirstSpawn:spawn("SPIDER");
+         s1FirstSpawnR1:spawn("ZOMBIE");
+         s1FirstSpawnR1:spawn("ZOMBIE");
+         s1FirstSpawnR1:spawn("SKELETON");
+         s1FirstSpawnR1:spawn("SKELETON");
 end
 
 local sR1spawn2 = Location:new(myWorld, -11.0, 65.0, 16.0);
 local s1SecondSpawnR1 = Entity:new(sR1spawn2);
 
 function s_round1_spawn2(data)
-         s1SecondSpawn:spawn("SKELETON");
-         s1SecondSpawn:spawn("SKELETON");
-         s1SecondSpawn:spawn("CREEPER");
-         s1SecondSpawn:spawn("SPIDER");
+         s1SecondSpawnR1:spawn("SKELETON");
+         s1SecondSpawnR1:spawn("SKELETON");
+         s1SecondSpawnR1:spawn("ZOMBIE");
+         s1SecondSpawnR1:spawn("ZOMBIE");
 end
 
 local sR1spawn3 = Location:new(myWorld, -18.0, 65.0,-5.0);
 local s1ThirdSpawnR1 = Entity:new(sR1spawn3);
 
 function s_round1_spawn3(data)
-         s1ThirdSpawn:spawn("ZOMBIE");
-         s1ThirdSpawn:spawn("SPIDER");
-         s1ThirdSpawn:spawn("CREEPER");
-         s1ThirdSpawn:spawn("SPIDER");
+         s1ThirdSpawnR1:spawn("ZOMBIE");
+         s1ThirdSpawnR1:spawn("ZOMBIE");
+         s1ThirdSpawnR1:spawn("SKELETON");
+         s1ThirdSpawnR1:spawn("SKELETON");
 end
 
 local sR1spawn4 = Location:new(myWorld, 6.0, 65.0, -14.0);
 local s1FourthSpawnR1 = Entity:new(sR1spawn4);
 
 function s_round1_spawn4(data)
-         s1FourthSpawn:spawn("ZOMBIE");
-         s1FourthSpawn:spawn("SPIDER");
-         s1FourthSpawn:spawn("SPIDER");
-         s1FourthSpawn:spawn("CREEPER");
+         s1FourthSpawnR1:spawn("ZOMBIE");
+         s1FourthSpawnR1:spawn("ZOMBIE");
+         s1FourthSpawnR1:spawn("SKELETON");
+         s1FourthSpawnR1:spawn("SKELETON");
 end
 
 local sR1spawn5 = Location:new(myWorld, 15.0, 65.0, 2.0);
 local s1FiveSpawnR1 = Entity:new(sR1spawn5);
 
 function s_round1_spawn5(data)
-         s1FiveSpawn:spawn("SKELETON");
-         s1FiveSpawn:spawn("SKELETON");
-         s1FiveSpawn:spawn("SKELETON");
-         s1FiveSpawn:spawn("CREEPER");
+         s1FiveSpawnR1:spawn("SKELETON");
+         s1FiveSpawnR1:spawn("SKELETON");
+         s1FiveSpawnR1:spawn("ZOMBIE");
+         s1FiveSpawnR1:spawn("ZOMBIE");
 end
 
-registerHook("INTERACT", "s_round1_spawn1", 69, "mobarena", -7.0, 66.0, 1.0);
-registerHook("INTERACT", "s_round1_spawn2", 69, "mobarena", -7.0, 66.0, 1.0);
-registerHook("INTERACT", "s_round1_spawn3", 69, "mobarena", -7.0, 66.0, 1.0);
-registerHook("INTERACT", "s_round1_spawn4", 69, "mobarena", -7.0, 66.0, 1.0);
-registerHook("INTERACT", "s_round1_spawn5", 69, "mobarena", -7.0, 66.0, 1.0);
+--Round 2 (25 Mobs)--
+
+local sR2spawn1 = Location:new(myWorld, 4.0, 65.0, 17.0);
+local s1FirstSpawnR2 = Entity:new(sR2spawn1);
+
+function s_round2_spawn1(data)
+         s1FirstSpawnR2:spawn("ZOMBIE");
+         s1FirstSpawnR2:spawn("ZOMBIE");
+         s1FirstSpawnR2:spawn("SKELETON");
+         s1FirstSpawnR2:spawn("SPIDER");
+         s1FirstSpawnR2:spawn("SKELETON");
+end
+
+local sR2spawn2 = Location:new(myWorld, -11.0, 65.0, 16.0);
+local s1SecondSpawnR2 = Entity:new(sR2spawn2);
+
+function s_round2_spawn2(data)
+         s1SecondSpawnR2:spawn("SKELETON");
+         s1SecondSpawnR2:spawn("SKELETON");
+         s1SecondSpawnR2:spawn("ZOMBIE");
+         s1SecondSpawnR2:spawn("SPIDER");
+         s1SecondSpawnR2:spawn("SPIDER");
+end
+
+local sR2spawn3 = Location:new(myWorld, -18.0, 65.0,-5.0);
+local s1ThirdSpawnR2 = Entity:new(sR2spawn3);
+
+function s_round2_spawn3(data)
+         s1ThirdSpawnR2:spawn("ZOMBIE");
+         s1ThirdSpawnR2:spawn("SPIDER");
+         s1ThirdSpawnR2:spawn("SKELETON");
+         s1ThirdSpawnR2:spawn("SPIDER");
+         s1ThirdSpawnR2:spawn("SPIDER");
+end
+
+local sR2spawn4 = Location:new(myWorld, 6.0, 65.0, -14.0);
+local s1FourthSpawnR2 = Entity:new(sR2spawn4);
+
+function s_round2_spawn4(data)
+         s1FourthSpawnR2:spawn("ZOMBIE");
+         s1FourthSpawnR2:spawn("SPIDER");
+         s1FourthSpawnR2:spawn("SKELETON");
+         s1FourthSpawnR2:spawn("SKELETON");
+         s1FourthSpawnR2:spawn("SPIDER");
+end
+
+local sR2spawn5 = Location:new(myWorld, 15.0, 65.0, 2.0);
+local s1FiveSpawnR2 = Entity:new(sR2spawn5);
+
+function s_round2_spawn5(data)
+         s1FiveSpawnR2:spawn("SKELETON");
+         s1FiveSpawnR2:spawn("SKELETON");
+         s1FiveSpawnR2:spawn("SKELETON");
+         s1FiveSpawnR2:spawn("ZOMBIE");
+         s1FiveSpawnR2:spawn("ZOMBIE");
+end
+
+registerHook("INTERACT", "s_round2_spawn1", 69, "mobarena", -7.0, 66.0, 0.0);
+registerHook("INTERACT", "s_round2_spawn2", 69, "mobarena", -7.0, 66.0, 0.0);
+registerHook("INTERACT", "s_round2_spawn3", 69, "mobarena", -7.0, 66.0, 0.0);
+registerHook("INTERACT", "s_round2_spawn4", 69, "mobarena", -7.0, 66.0, 0.0);
+registerHook("INTERACT", "s_round2_spawn5", 69, "mobarena", -7.0, 66.0, 0.0);
+
+--Round 3 (30 Mobs)--
+
+local sR3spawn1 = Location:new(myWorld, 4.0, 65.0, 17.0);
+local s1FirstSpawnR3 = Entity:new(sR3spawn1);
+
+function s_round3_spawn1(data)
+         s1FirstSpawnR3:spawn("ZOMBIE");
+         s1FirstSpawnR3:spawn("ZOMBIE");
+         s1FirstSpawnR3:spawn("CREEPER");
+         s1FirstSpawnR3:spawn("SPIDER");
+         s1FirstSpawnR3:spawn("SKELETON");
+         s1FirstSpawnR3:spawn("SPIDER");
+end
+
+local sR3spawn2 = Location:new(myWorld, -11.0, 65.0, 16.0);
+local s1SecondSpawnR3 = Entity:new(sR3spawn2);
+
+function s_round3_spawn2(data)
+         s1SecondSpawnR3:spawn("SKELETON");
+         s1SecondSpawnR3:spawn("SKELETON");
+         s1SecondSpawnR3:spawn("CREEPER");
+         s1SecondSpawnR3:spawn("SPIDER");
+         s1SecondSpawnR3:spawn("ZOMBIE");
+         s1SecondSpawnR3:spawn("ZOMBIE");
+end
+
+local sR3spawn3 = Location:new(myWorld, -18.0, 65.0,-5.0);
+local s1ThirdSpawnR3 = Entity:new(sR3spawn3);
+
+function s_round3_spawn3(data)
+         s1ThirdSpawnR3:spawn("ZOMBIE");
+         s1ThirdSpawnR3:spawn("SPIDER");
+         s1ThirdSpawnR3:spawn("CREEPER");
+         s1ThirdSpawnR3:spawn("SPIDER");
+         s1ThirdSpawnR3:spawn("SKELETON");
+         s1ThirdSpawnR3:spawn("CREEPER");
+end
+
+local sR3spawn4 = Location:new(myWorld, 6.0, 65.0, -14.0);
+local s1FourthSpawnR3 = Entity:new(sR3spawn4);
+
+function s_round3_spawn4(data)
+         s1FourthSpawnR3:spawn("ZOMBIE");
+         s1FourthSpawnR3:spawn("SPIDER");
+         s1FourthSpawnR3:spawn("CREEPER");
+         s1FourthSpawnR3:spawn("CREEPER");
+         s1FourthSpawnR3:spawn("SPIDER");
+         s1FourthSpawnR3:spawn("ZOMBIE");
+end
+
+local sR3spawn5 = Location:new(myWorld, 15.0, 65.0, 2.0);
+local s1FiveSpawnR3 = Entity:new(sR3spawn5);
+
+function s_round3_spawn5(data)
+         s1FiveSpawnR3:spawn("SKELETON");
+         s1FiveSpawnR3:spawn("SKELETON");
+         s1FiveSpawnR3:spawn("CREEPER");
+         s1FiveSpawnR3:spawn("CREEPER");
+         s1FiveSpawnR3:spawn("ZOMBIE");
+         s1FiveSpawnR3:spawn("SPIDER");
+end
+
+registerHook("INTERACT", "s_round3_spawn1", 69, "mobarena", -7.0, 66.0, -0.0);
+registerHook("INTERACT", "s_round3_spawn2", 69, "mobarena", -7.0, 66.0, -0.0);
+registerHook("INTERACT", "s_round3_spawn3", 69, "mobarena", -7.0, 66.0, -0.0);
+registerHook("INTERACT", "s_round3_spawn4", 69, "mobarena", -7.0, 66.0, -0.0);
+registerHook("INTERACT", "s_round3_spawn5", 69, "mobarena", -7.0, 66.0, -0.0);
+
+--Round 4 (35 Mobs)--
+
+local sR4spawn1 = Location:new(myWorld, 4.0, 65.0, 17.0);
+local s1FirstSpawnR4 = Entity:new(sR4spawn1);
+
+function s_round4_spawn1(data)
+         s1FirstSpawnR4:spawn("ZOMBIE");
+         s1FirstSpawnR4:spawn("ZOMBIE");
+         s1FirstSpawnR4:spawn("CREEPER");
+         s1FirstSpawnR4:spawn("SPIDER");
+         s1FirstSpawnR4:spawn("SKELETON");
+         s1FirstSpawnR4:spawn("SPIDER");
+         s1FirstSpawnR4:spawn("SKELETON");
+end
+
+local sR4spawn2 = Location:new(myWorld, -11.0, 65.0, 16.0);
+local s1SecondSpawnR4 = Entity:new(sR4spawn2);
+
+function s_round4_spawn2(data)
+         s1SecondSpawnR4:spawn("SKELETON");
+         s1SecondSpawnR4:spawn("SKELETON");
+         s1SecondSpawnR4:spawn("CREEPER");
+         s1SecondSpawnR4:spawn("SPIDER");
+         s1SecondSpawnR4:spawn("ZOMBIE");
+         s1SecondSpawnR4:spawn("ZOMBIE");
+         s1SecondSpawnR4:spawn("SPIDER");
+end
+
+local sR4spawn3 = Location:new(myWorld, -18.0, 65.0,-5.0);
+local s1ThirdSpawnR4 = Entity:new(sR4spawn3);
+
+function s_round4_spawn3(data)
+         s1ThirdSpawnR4:spawn("ZOMBIE");
+         s1ThirdSpawnR4:spawn("SPIDER");
+         s1ThirdSpawnR4:spawn("CREEPER");
+         s1ThirdSpawnR4:spawn("SPIDER");
+         s1ThirdSpawnR4:spawn("SKELETON");
+         s1ThirdSpawnR4:spawn("CREEPER");
+         s1ThirdSpawnR4:spawn("WITCH");
+end
+
+local sR4spawn4 = Location:new(myWorld, 6.0, 65.0, -14.0);
+local s1FourthSpawnR4 = Entity:new(sR4spawn4);
+
+function s_round4_spawn4(data)
+         s1FourthSpawnR4:spawn("ZOMBIE");
+         s1FourthSpawnR4:spawn("SPIDER");
+         s1FourthSpawnR4:spawn("CREEPER");
+         s1FourthSpawnR4:spawn("CREEPER");
+         s1FourthSpawnR4:spawn("SPIDER");
+         s1FourthSpawnR4:spawn("ZOMBIE");
+         s1FourthSpawnR4:spawn("CREEPER");
+end
+
+local sR4spawn5 = Location:new(myWorld, 15.0, 65.0, 2.0);
+local s1FiveSpawnR4 = Entity:new(sR4spawn5);
+
+function s_round4_spawn5(data)
+         s1FiveSpawnR4:spawn("SKELETON");
+         s1FiveSpawnR4:spawn("SKELETON");
+         s1FiveSpawnR4:spawn("CREEPER");
+         s1FiveSpawnR4:spawn("CREEPER");
+         s1FiveSpawnR4:spawn("ZOMBIE");
+         s1FiveSpawnR4:spawn("SPIDER");
+         s1FiveSpawnR4:spawn("WITCH");
+end
+
+registerHook("INTERACT", "s_round4_spawn1", 69, "mobarena", -7.0, 66.0, -1.0);
+registerHook("INTERACT", "s_round4_spawn2", 69, "mobarena", -7.0, 66.0, -1.0);
+registerHook("INTERACT", "s_round4_spawn3", 69, "mobarena", -7.0, 66.0, -1.0);
+registerHook("INTERACT", "s_round4_spawn4", 69, "mobarena", -7.0, 66.0, -1.0);
+registerHook("INTERACT", "s_round4_spawn5", 69, "mobarena", -7.0, 66.0, -1.0);
+
+--Round 5 (40 Mobs)--
+
+local sR5spawn1 = Location:new(myWorld, 4.0, 65.0, 17.0);
+local s1FirstSpawnR5 = Entity:new(sR5spawn1);
+
+function s_round5_spawn1(data)
+         s1FirstSpawnR5:spawn("ZOMBIE");
+         s1FirstSpawnR5:spawn("ZOMBIE");
+         s1FirstSpawnR5:spawn("CREEPER");
+         s1FirstSpawnR5:spawn("SPIDER");
+         s1FirstSpawnR5:spawn("SKELETON");
+         s1FirstSpawnR5:spawn("SPIDER");
+         s1FirstSpawnR5:spawn("SKELETON");
+         s1FirstSpawnR5:spawn("WITCH");
+end
+
+local sR5spawn2 = Location:new(myWorld, -11.0, 65.0, 16.0);
+local s1SecondSpawnR5 = Entity:new(sR5spawn2);
+
+function s_round5_spawn2(data)
+         s1SecondSpawnR5:spawn("SKELETON");
+         s1SecondSpawnR5:spawn("SKELETON");
+         s1SecondSpawnR5:spawn("CREEPER");
+         s1SecondSpawnR5:spawn("SPIDER");
+         s1SecondSpawnR5:spawn("ZOMBIE");
+         s1SecondSpawnR5:spawn("ZOMBIE");
+         s1SecondSpawnR5:spawn("SPIDER");
+         s1SecondSpawnR5:spawn("WITCH");
+end
+
+local sR5spawn3 = Location:new(myWorld, -18.0, 65.0,-5.0);
+local s1ThirdSpawnR5 = Entity:new(sR5spawn3);
+
+function s_round5_spawn3(data)
+         s1ThirdSpawnR5:spawn("ZOMBIE");
+         s1ThirdSpawnR5:spawn("SPIDER");
+         s1ThirdSpawnR5:spawn("CREEPER");
+         s1ThirdSpawnR5:spawn("SPIDER");
+         s1ThirdSpawnR5:spawn("SKELETON");
+         s1ThirdSpawnR5:spawn("CREEPER");
+         s1ThirdSpawnR5:spawn("WITCH");
+         s1ThirsSpawnR5:spawn("CREEPER");
+end
+
+local sR5spawn4 = Location:new(myWorld, 6.0, 65.0, -14.0);
+local s1FourthSpawnR5 = Entity:new(sR5spawn4);
+
+function s_round5_spawn4(data)
+         s1FourthSpawnR5:spawn("ZOMBIE");
+         s1FourthSpawnR5:spawn("SPIDER");
+         s1FourthSpawnR5:spawn("CREEPER");
+         s1FourthSpawnR5:spawn("CREEPER");
+         s1FourthSpawnR5:spawn("SPIDER");
+         s1FourthSpawnR5:spawn("ZOMBIE");
+         s1FourthSpawnR5:spawn("CREEPER");
+         s1FourthSpawnR5:spawn("WITCH");
+end
+
+local sR5spawn5 = Location:new(myWorld, 15.0, 65.0, 2.0);
+local s1FiveSpawnR5 = Entity:new(sR5spawn5);
+
+function s_round5_spawn5(data)
+         s1FiveSpawnR5:spawn("SKELETON");
+         s1FiveSpawnR5:spawn("SKELETON");
+         s1FiveSpawnR5:spawn("CREEPER");
+         s1FiveSpawnR5:spawn("CREEPER");
+         s1FiveSpawnR5:spawn("ZOMBIE");
+         s1FiveSpawnR5:spawn("SPIDER");
+         s1FiveSpawnR5:spawn("WITCH");
+         s1FiveSpawnR5:spawn("WITCH");
+end
+
+registerHook("INTERACT", "s_round5_spawn1", 69, "mobarena", -7.0, 66.0, -2.0);
+registerHook("INTERACT", "s_round5_spawn2", 69, "mobarena", -7.0, 66.0, -2.0);
+registerHook("INTERACT", "s_round5_spawn3", 69, "mobarena", -7.0, 66.0, -2.0);
+registerHook("INTERACT", "s_round5_spawn4", 69, "mobarena", -7.0, 66.0, -2.0);
+registerHook("INTERACT", "s_round5_spawn5", 69, "mobarena", -7.0, 66.0, -2.0);
 
 --ToDo:
---ROUND NEEDS TO END ITESLEF!
+--ROUND NEEDS TO END ITSELF!
 --CAN NOT RESTART ROUND TILL ALL ROUNDS ARE DONE
 --IF NO PLAYERS IN ARENA ALL ROUNDS RESET.	
 --Message on round end to tell player about shop, how to start.

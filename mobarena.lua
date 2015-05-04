@@ -168,6 +168,15 @@ local sR5Done = false;
 --To know when a Round is in-progress.
 local sRoundRunning = false;
 
+local surfacearea = {
+	minX = -53,
+	minY = 61,
+	minX = -54,
+	maxX = 61,
+	maxY = 161,
+	maxZ = 62
+};
+
 local surfacesound = Location:new(myWorld, -3, 65, -1);
 local surfacearenaexit = Location:new(myWorld, 837, 97, 149);
 
@@ -181,12 +190,14 @@ end
 function surface_exit1(data)
       local targetPlayer = Player:new(data.player);
        targetPlayer:teleport(surfacearenaexit);
+end
+
+function surface_exit2(data)
       local player = Player:new(data.player);
        a_broadcast_npc(Overlord, player.name .. " has &cabandoned &fthe struggle in the &6Surface Arena&f!");
 end
 
-
---Round Starting--
+--Round control--
 
 
 function s_round1_start(data)
@@ -250,8 +261,9 @@ function s_round5_start(data)
 end
 
 
-registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface_enter");
+registerHook("REGION_ENTER", "surface_enter", "mobarena-arena_surface");
 registerHook("INTERACT", "surface_exit1", 77, "mobarena", 30, 65, -2);
+registerHook("REGION_LEAVE", "surface_exit2", "mobarena-arena_surface");
 registerHook("INTERACT", "s_round1_start", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round2_start", 69, "mobarena", 0, 66, -4);
 registerHook("INTERACT", "s_round3_start", 69, "mobarena", 0, 66, 2);
@@ -264,64 +276,61 @@ registerHook("INTERACT", "s_round5_start", 69, "mobarena", -6, 66, -4);
 
 
 
-local s1Zombie = Location:new(myWorld, 4.0, 65.0, 17.0);
-local s1ZombieSpawn = Entity:new(s1Zombie);
+local sR1spawn1 = Location:new(myWorld, 4.0, 65.0, 17.0);
+local s1FirstSpawn = Entity:new(sR1spawn1);
 
-function s_round1_szombie(data)
-         s1ZombieSpawn:spawn("ZOMBIE");
-         s1ZombieSpawn:spawn("ZOMBIE");
-         s1ZombieSpawn:spawn("ZOMBIE");
-         s1ZombieSpawn:spawn("ZOMBIE");
-         s1ZombieSpawn:spawn("ZOMBIE");
+function s_round1_spawn1(data)
+         s1FirstSpawn:spawn("ZOMBIE");
+         s1FirstSpawn:spawn("ZOMBIE");
+         s1FirstSpawn:spawn("CREEPER");
+         s1FirstSpawn:spawn("SPIDER");
 end
 
-local s1Skelly = Location:new(myWorld, -9.0, 65.0, 17.0);
-local s1SkellySpawn = Entity:new(s1Skelly);
+local sR1spawn2 = Location:new(myWorld, -11.0, 65.0, 16.0);
+local s1SecondSpawn = Entity:new(sR1spawn2);
 
-function s_round1_sskelly(data)
-         s1SkellySpawn:spawn("SKELETON");
-         s1SkellySpawn:spawn("SKELETON");
+function s_round1_spawn2(data)
+         s1SecondSpawn:spawn("SKELETON");
+         s1SecondSpawn:spawn("SKELETON");
+         s1SecondSpawn:spawn("CREEPER");
+         s1SecondSpawn:spawn("SPIDER");
 end
 
-local s1Skelly2 = Location:new(myWorld, -22.0, 65.0, -5.0);
-local s1SkellySpawn2 = Entity:new(s1Skelly2);
+local sR1spawn3 = Location:new(myWorld, -18.0, 65.0,-5.0);
+local s1ThirdSpawn = Entity:new(sR1spawn3);
 
-function s_round1_sskelly2(data)
-         s1SkellySpawn2:spawn("SKELETON");
-         s1SkellySpawn2:spawn("SKELETON");
+function s_round1_spawn3(data)
+         s1ThirdSpawn:spawn("ZOMBIE");
+         s1ThirdSpawn:spawn("SPIDER");
+         s1ThirdSpawn:spawn("CREEPER");
+         s1ThirdSpawn:spawn("SPIDER");
 end
 
-local s1Spider = Location:new(myWorld, 7.0, 65.0, -14.0);
-local s1SpiderSpawn = Entity:new(s1Spider);
+local sR1spawn4 = Location:new(myWorld, 6.0, 65.0, -14.0);
+local s1FourthSpawn = Entity:new(sR1spawn4);
 
-function s_round1_sspider(data)
-         s1SpiderSpawn:spawn("SPIDER");
-         s1SpiderSpawn:spawn("SPIDER");
+function s_round1_spawn4(data)
+         s1FourthSpawn:spawn("ZOMBIE");
+         s1FourthSpawn:spawn("SPIDER");
+         s1FourthSpawn:spawn("SPIDER");
+         s1FourthSpawn:spawn("CREEPER");
 end
 
-local s1Creeper = Location:new(myWorld, 15.0, 65.0, 2.0);
-local s1CreeperSpawn = Entity:new(s1Creeper);
+local sR1spawn5 = Location:new(myWorld, 15.0, 65.0, 2.0);
+local s1FiveSpawn = Entity:new(sR1spawn5);
 
-function s_round1_screeper(data)
-         s1CreeperSpawn:spawn("CREEPER");
+function s_round1_spawn5(data)
+         s1FiveSpawn:spawn("SKELETON");
+         s1FiveSpawn:spawn("SKELETON");
+         s1FiveSpawn:spawn("SKELETON");
+         s1FiveSpawn:spawn("CREEPER");
 end
 
-local s1Witch = Location:new(myWorld, -11.0, 66.0, -19.0);
-local s1WitchSpawn = Entity:new(s1Witch);
-
-function s_round1_switch(data)
-         s1WitchSpawn:spawn("WITCH");
-end
-
-
-
-registerHook("INTERACT", "s_round1_szombie", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_sskelly", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_sskelly2", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_sspider", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_screeper", 69, "mobarena", -3, 66, -1);
-registerHook("INTERACT", "s_round1_switch", 69, "mobarena", -3, 66, -1);
-
+registerHook("INTERACT", "s_round1_spawn1", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_spawn2", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_spawn3", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_spawn4", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_spawn5", 69, "mobarena", -3, 66, -1);
 
 --ToDo:
 --Lever can not be flipped during a round, get an error message.
@@ -329,6 +338,7 @@ registerHook("INTERACT", "s_round1_switch", 69, "mobarena", -3, 66, -1);
 --Effect Mobs
 --Sounds
 --Loot
+--Change tp in face-direction.
 
 ---------------------
 --Ender Arena--------

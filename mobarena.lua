@@ -402,7 +402,7 @@ registerHook("BLOCK_GAINS_CURRENT", "s_pl_fence", "mobarena", -49.0, 114.0, 9.0)
 
 
 local sR1spawn1 = Location:new(myWorld, 4.0, 65.0, 17.0);
-local s1FirstSpawn = Entity:new(sR1spawn1);
+local s1FirstSpawnR1 = Entity:new(sR1spawn1);
 
 function s_round1_spawn1(data)
          s1FirstSpawn:spawn("ZOMBIE");
@@ -412,7 +412,7 @@ function s_round1_spawn1(data)
 end
 
 local sR1spawn2 = Location:new(myWorld, -11.0, 65.0, 16.0);
-local s1SecondSpawn = Entity:new(sR1spawn2);
+local s1SecondSpawnR1 = Entity:new(sR1spawn2);
 
 function s_round1_spawn2(data)
          s1SecondSpawn:spawn("SKELETON");
@@ -422,7 +422,7 @@ function s_round1_spawn2(data)
 end
 
 local sR1spawn3 = Location:new(myWorld, -18.0, 65.0,-5.0);
-local s1ThirdSpawn = Entity:new(sR1spawn3);
+local s1ThirdSpawnR1 = Entity:new(sR1spawn3);
 
 function s_round1_spawn3(data)
          s1ThirdSpawn:spawn("ZOMBIE");
@@ -432,7 +432,7 @@ function s_round1_spawn3(data)
 end
 
 local sR1spawn4 = Location:new(myWorld, 6.0, 65.0, -14.0);
-local s1FourthSpawn = Entity:new(sR1spawn4);
+local s1FourthSpawnR1 = Entity:new(sR1spawn4);
 
 function s_round1_spawn4(data)
          s1FourthSpawn:spawn("ZOMBIE");
@@ -442,7 +442,7 @@ function s_round1_spawn4(data)
 end
 
 local sR1spawn5 = Location:new(myWorld, 15.0, 65.0, 2.0);
-local s1FiveSpawn = Entity:new(sR1spawn5);
+local s1FiveSpawnR1 = Entity:new(sR1spawn5);
 
 function s_round1_spawn5(data)
          s1FiveSpawn:spawn("SKELETON");

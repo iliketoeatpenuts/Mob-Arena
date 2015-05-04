@@ -451,6 +451,12 @@ function s_round1_spawn5(data)
          s1FiveSpawnR1:spawn("ZOMBIE");
 end
 
+registerHook("INTERACT", "s_round1_spawn1", 69, "mobarena", -7.0, 66.0, 1.0);
+registerHook("INTERACT", "s_round1_spawn2", 69, "mobarena", -7.0, 66.0, 1.0);
+registerHook("INTERACT", "s_round1_spawn3", 69, "mobarena", -7.0, 66.0, 1.0);
+registerHook("INTERACT", "s_round1_spawn4", 69, "mobarena", -7.0, 66.0, 1.0);
+registerHook("INTERACT", "s_round1_spawn5", 69, "mobarena", -7.0, 66.0, 1.0);
+
 --Round 2 (25 Mobs)--
 
 local sR2spawn1 = Location:new(myWorld, 4.0, 65.0, 17.0);

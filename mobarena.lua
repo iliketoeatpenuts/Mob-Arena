@@ -306,12 +306,21 @@ function s_round1_screeper(data)
          s1CreeperSpawn:spawn("CREEPER");
 end
 
+local s1Witch = Location:new(myWorld, -11.0, 66.0, -19.0);
+local s1WitchSpawn = Entity:new(s1Witch);
+
+function s_round1_switch(data)
+         s1WitchSpawn:spawn("WITCH");
+end
+
+
 
 registerHook("INTERACT", "s_round1_szombie", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round1_sskelly", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round1_sskelly2", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round1_sspider", 69, "mobarena", -3, 66, -1);
 registerHook("INTERACT", "s_round1_screeper", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_switch", 69, "mobarena", -3, 66, -1);
 
 
 --ToDo:

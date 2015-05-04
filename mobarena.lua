@@ -459,7 +459,8 @@ registerHook("INTERACT", "s_round1_spawn5", 69, "mobarena", -7.0, 66.0, 1.0);
 
 --ToDo:
 --ROUND NEEDS TO END ITESLEF!
---Lever can not be flipped during a round, get an error message.
+--Message on round end to tell player about shop, how to start.
+--players in center to start?
 --Respawn inside the arena if player dies.
 --Effect Mobs
 --Sounds

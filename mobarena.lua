@@ -326,6 +326,9 @@ registerHook("INTERACT", "s_round1_switch", 69, "mobarena", -3, 66, -1);
 --ToDo:
 --Lever can not be flipped during a round, get an error message.
 --Respawn inside the arena if player dies.
+--Effect Mobs
+--Sounds
+--Loot
 
 ---------------------
 --Ender Arena--------

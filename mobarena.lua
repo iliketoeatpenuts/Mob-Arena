@@ -239,10 +239,57 @@ registerHook("INTERACT", "s_round4_start", 69, "mobarena", -6, 66, 2);
 registerHook("INTERACT", "s_round5_start", 69, "mobarena", -6, 66, -4);
 
 
+local s1Zombie = Location:new(myWorld, 4.0, 65.0, 17.0);
+local s1ZombieSpawn = Entity:new(s1Zombie);
+
+function s_round1_szombie(data)
+         s1ZombieSpawn:spawn("ZOMBIE");
+         s1ZombieSpawn:spawn("ZOMBIE");
+         s1ZombieSpawn:spawn("ZOMBIE");
+         s1ZombieSpawn:spawn("ZOMBIE");
+         s1ZombieSpawn:spawn("ZOMBIE");
+end
+
+local s1Skelly = Location:new(myWorld, -9.0, 65.0, 17.0);
+local s1SkellySpawn = Entity:new(s1Skelly);
+
+function s_round1_sskelly(data)
+         s1SkellySpawn:spawn("SKELETON");
+         s1SkellySpawn:spawn("SKELETON");
+end
+
+local s1Skelly2 = Location:new(myWorld, -22.0, 65.0, -5.0);
+local s1SkellySpawn2 = Entity:new(s1Skelly2);
+
+function s_round1_sskelly2(data)
+         s1SkellySpawn2:spawn("SKELETON");
+         s1SkellySpawn2:spawn("SKELETON");
+end
+
+local s1Spider = Location:new(myWorld, 7.0, 65.0, -14.0);
+local s1SpiderSpawn = Entity:new(s1Spider);
+
+function s_round1_sspider(data)
+         s1SpiderSpawn:spawn("SPIDER");
+         s1SpiderSpawn:spawn("SPIDER");
+end
+
+local s1Creeper = Location:new(myWorld, 15.0, 65.0, 2.0);
+local s1CreeperSpawn = Entity:new(s1Creeper);
+
+function s_round1_screeper(data)
+         s1CreeperSpawn:spawn("CREEPER");
+end
+
+
+registerHook("INTERACT", "s_round1_szombie", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_sskelly", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_sskelly2", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_sspider", 69, "mobarena", -3, 66, -1);
+registerHook("INTERACT", "s_round1_screeper", 69, "mobarena", -3, 66, -1);
+
+
 --ToDo:
---ONLY ONE ROUND CAN RUN AT A TIME!!!!!!
---Must Play Rounds in order!!!
---Lever Needs to be flipped at the end of each round to start the next round.
 --Lever can not be flipped during a round, get an error message.
 --Respawn inside the arena if player dies.
 --At the end of round 5 all players back to lobby.

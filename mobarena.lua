@@ -295,7 +295,7 @@ end
 function s_re_lever()
        if sRoundRunning then
 	for index, key in ipairs(blocks) do
-		key:setBlock(89, current);
+		key:setBlock(50, current);
       end
    end
 end
@@ -330,6 +330,72 @@ end
 registerHook("BLOCK_GAINS_CURRENT", "s_re_lever", "mobarena", -49.0, 114.0, 9.0);
 registerHook("BLOCK_GAINS_CURRENT", "s_pl_lever", "mobarena", -49.0, 114.0, 9.0);
 
+--Local Shop--
+
+local current = 1;
+local maxData = 14;
+local blocks = {
+	Location:new(myWorld, -32.0, 66.0, 2.0),
+	Location:new(myWorld, -32.0, 66.0, 1.0),
+	Location:new(myWorld, -32.0, 66.0, 0.0),
+	Location:new(myWorld, -32.0, 67.0, 2.0),
+	Location:new(myWorld, -32.0, 67.0, 1.0),
+	Location:new(myWorld, -32.0, 67.0, 0.0),
+	Location:new(myWorld, -32.0, 68.0, 2.0),
+	Location:new(myWorld, -32.0, 68.0, 1.0),
+	Location:new(myWorld, -32.0, 68.0, 0.0),
+};
+
+function s_placefence(data)
+	if current == maxData then
+		current = 1;
+	else
+		current = current + 1;
+	end
+	s_pl_fence();
+end
+
+function s_pl_fence()
+       if sRoundRunning then
+	for index, key in ipairs(blocks) do
+		key:setBlock(85, current);
+      end
+   end
+end
+
+local current = 1;
+local maxData = 14;
+local blocks = {
+	Location:new(myWorld, -32.0, 66.0, 2.0),
+	Location:new(myWorld, -32.0, 66.0, 1.0),
+	Location:new(myWorld, -32.0, 66.0, 0.0),
+	Location:new(myWorld, -32.0, 67.0, 2.0),
+	Location:new(myWorld, -32.0, 67.0, 1.0),
+	Location:new(myWorld, -32.0, 67.0, 0.0),
+	Location:new(myWorld, -32.0, 68.0, 2.0),
+	Location:new(myWorld, -32.0, 68.0, 1.0),
+	Location:new(myWorld, -32.0, 68.0, 0.0),
+};
+
+function s_removefence(data)
+	if current == maxData then
+		current = 1;
+	else
+		current = current + 1;
+	end
+	s_re_fence();
+end
+
+function s_re_fence()
+       if not sRoundRunning then
+	for index, key in ipairs(blocks) do
+		key:setBlock(367, current);
+      end
+   end
+end
+
+registerHook("BLOCK_GAINS_CURRENT", "s_re_fence", "mobarena", -49.0, 114.0, 9.0);
+registerHook("BLOCK_GAINS_CURRENT", "s_pl_fence", "mobarena", -49.0, 114.0, 9.0);
 
 --Mob Spawning--
 
